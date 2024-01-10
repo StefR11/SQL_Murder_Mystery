@@ -1,0 +1,3 @@
+-- murder that occured sometime on Jan.15, 2018 and that it took place in SQL city
+select * from crime_scene_report
+where type = 'murder' and city = 'SQL city' and date = 20180115
