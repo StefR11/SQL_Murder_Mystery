@@ -37,4 +37,4 @@ INSERT INTO solution VALUES (1, 'Jeremy Bowers');
 SELECT value FROM solution;
 
 -- It seems that the murderer is Jeremy Bowers, but there is actually a mastermind behind all of this, so there is a real villain.
--- what I can do is to look at what happened with Jeremy in the interview table
+-- what I can do is to look at what's happened with Jeremy in the interview table
