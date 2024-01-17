@@ -16,3 +16,17 @@ where name = LIKE '%Annabel%' and address_street_name = 'Franklin ave'
 select * from interview
 where person_id IN (14887, 16371)
 limit 10
+
+-- 3 "Get fit Now Gym" bag started with "48Z" gold member
+-- car with a plate that included "H42W"
+-- the other witness saw the murder happen, and she recognised from her gym when she was 
+-- working out last week on January the 9th
+
+select * from drivers_license AS dl
+INNER JOIN person AS p ON p.license_id = dl.id
+INNER JOIN get_fit_now_member AS gf ON p.id = gf.person_id
+INNER JOIN get_fit_now_check_in AS ci ON ci.membership_id = gf_id
+where dl.plate_number LIKE '%H42W%'
+and gf.membership_status = 'Gold'
+and ci.check_in_date = 20180109
+limit 10
