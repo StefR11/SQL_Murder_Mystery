@@ -1,3 +1,18 @@
--- murder that occured sometime on Jan.15, 2018 and that it took place in SQL city
+-- 1 murder that occured sometime on Jan.15, 2018 and that it took place in SQL city
 select * from crime_scene_report
 where type = 'murder' and city = 'SQL city' and date = 20180115
+
+-- 2 witnesses.
+-- 1st - lives at the last house on "Northwestern Dr".
+-- 2nd - Annabel, lives somewhere on 'Franklin Ave'.
+select * from person
+where address_street_name = 'Northwester Dr'
+order by address_number DESC
+limit 1
+
+select * from person
+where name = LIKE '%Annabel%' and address_street_name = 'Franklin ave'
+
+select * from interview
+where person_id IN (14887, 16371)
+limit 10
