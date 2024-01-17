@@ -50,3 +50,24 @@ where person_id = 67318
 -- around 5'5" (65") or 5'7" (67"), red hair, drives a Tesla Model S
 -- attended the SQL Symphony Concert 3 times in December 2017
 
+WITH CTE AS (
+select person_id, count(*) AS number_of_visits from facebook_event_checkin
+where date between 20171201 and 20171231
+and event_name = 'SQL Symphony Concert'
+group by person_id 
+HAVING COUNT(*) >= 3
+)  
+
+select p.*, fb.* from drivers_license AS dl
+inner join person AS p ON dl.id = p.license_id 
+inner join CTE AS fb ON fb.person_id = p.id
+limit 100
+where dl.hair_color = 'red' 
+and dl.height >= 65 and dl.height <=67
+and dl.car_make = 'Tesla' and dl.car_model = 'Model S'
+and dl.gender = 'female'
+
+-- the brain behind the murder is Miranda Priestly
+
+INSERT INTO solution VALUES (1, 'Miranda Priestly')
+SELECT * FROM solution
